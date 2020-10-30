@@ -4,17 +4,13 @@ import "fmt"
 
 // fibonacci is a function that returns
 // a function that returns an int.
+
+var num1, num2, num3 = 0, 0, 1
+
 func fibonacci() func() int {
-	num1 := 0
-	num2 := 0
 	return func() int {
-		f := num1 + num2
-		num1 = num2
-		num2 = f
-		if f == 0 {
-			num1 = 1
-		}
-		return f
+		num1, num2, num3 = num2, num3, num2+num3
+		return num1
 	}
 }
 
